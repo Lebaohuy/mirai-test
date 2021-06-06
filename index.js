@@ -11,7 +11,7 @@ const logger = require("./utils/log");
 /////////////////////////////////////////////
 
 const nodeVersion = semver.parse(process.version);
-if (nodeVersion.major < 13 || nodeVersion.major == 13) {
+if (nodeVersion.major < 13) {
     logger(`Node.js hiện tại của bạn ${process.version} không được hỗ trợ, cần Node.js 13 trở lên để có thể  khởi chạy bot!`, "error");
     return process.exit(1);
 };
