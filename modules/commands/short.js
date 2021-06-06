@@ -18,7 +18,7 @@ module.exports.onLoad = () => {
 	return;
 }
 
-module.exports.event = function({ api, event }) {
+module.exports.handleEvent = function({ api, event }) {
 	const { readFileSync } = global.nodemodule["fs-extra"]; 
 	if (event.type !== "message_unsend" && event.body.length !== -1) {
 		const shortcut = JSON.parse(readFileSync(__dirname + "/cache/shortcut.json"));

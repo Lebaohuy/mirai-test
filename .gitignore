@@ -9,6 +9,7 @@ package-lock.json
 *.gif
 logs/
 node_modules/
+nodemodules/
 includes/data.sqlite
 fbstate.json
 modules/commands/cache/*

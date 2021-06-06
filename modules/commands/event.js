@@ -62,7 +62,7 @@ module.exports.run = function ({ event, args, api }) {
             return loadCommand({ moduleList, threadID, messageID });
         }
         case "unloadAll": {
-            moduleList = readdirSync(__dirname, "..", "events").filter((file) => file.endsWith(".js") && !file.includes('example'));
+            moduleList = readdirSync(join(__dirname, "..", "events")).filter((file) => file.endsWith(".js") && !file.includes('example'));
             moduleList = moduleList.map(item => item.replace(/\.js/g, ""));
             return unloadModule({ moduleList, threadID, messageID });
         }

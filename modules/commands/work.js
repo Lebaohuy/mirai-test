@@ -11,7 +11,7 @@ module.exports.config = {
     }
 };
 
-module.exports.run = async ({ event, api, Currencies, global }) => {
+module.exports.run = async ({ event, api, Currencies }) => {
     const { threadID, messageID } = event;
     
     const cooldown = global.configModule[this.config.name].cooldownTime;
@@ -46,7 +46,7 @@ module.exports.run = async ({ event, api, Currencies, global }) => {
         return api.sendMessage(`Bạn ${job[Math.floor(Math.random() * job.length)]} và đã nhận được số tiền là: ${amount} coins`, threadID, async () => {
              await Currencies.increaseMoney(event.senderID, parseInt(amount));
              await Currencies.setData(event.senderID, { workTime: Date.now() });
+             return;
         }, messageID);
-    }
-       
+    }     
 }

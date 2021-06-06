@@ -55,14 +55,14 @@ module.exports.run = async function ({ api, event, args, Users, permssion }) {
                 writeFileSync(configPath, JSON.stringify(config, null, 4), 'utf8');
                 return api.sendMessage(`[Admin] Đã thêm ${mention.length} người dùng trở thành người điều hành bot:\n\n${listAdd.join("\n").replace(/\@/g, "")}`, threadID, messageID);
             }
-            else if (content.length != 0 && !isNaN(content[0])) {
+            else if (content.length != 0 && !isNaN(content[1])) {
                 ADMINBOT.push(content);
                 config.ADMINBOT.push(content);
                 const name = userName.get(content) || await Users.getNameUser(content);
                 writeFileSync(configPath, JSON.stringify(config, null, 4), 'utf8');
                 return api.sendMessage(`[Admin] Đã thêm người dùng trở thành người điều hành bot:\n\n[ ${content} ] » ${name}`, threadID, messageID);
             }
-            else return throwError(this.config.name, threadID, messageID);
+            else return global.client.utils.throwError(this.config.name, threadID, messageID);
         }
 
         case "remove":
@@ -83,7 +83,7 @@ module.exports.run = async function ({ api, event, args, Users, permssion }) {
                 writeFileSync(configPath, JSON.stringify(config, null, 4), 'utf8');
                 return api.sendMessage(`[Admin] Đã gỡ bỏ ${mention.length} người điều hành bot:\n\n${listAdd.join("\n").replace(/\@/g, "")}`, threadID, messageID);
             }
-            else if (content.length != 0 && !isNaN(content[0])) {
+            else if (content.length != 0 && !isNaN(content[1])) {
                 const index = config.ADMINBOT.findIndex(item => item == content);
                 ADMINBOT.splice(index, 1);
                 config.ADMINBOT.splice(index, 1);
