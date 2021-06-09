@@ -1,0 +1,27 @@
+const fs = require("fs");
+module.exports.config = {
+	name: "@Bao Huy",
+	version: "1.0.0",
+	hasPermssion: 0,
+	credits: "thọ", 
+	description: "no prefix",
+	commandCategory: "System",
+	usages: "@Bao Huy",
+    cooldowns: 1, 
+};
+
+module.exports.event = async ({ event, api, Currencies,Users, args, utils }) => {
+if (event.body.indexOf("@Bao Huy")==0 || (event.body.indexOf("@Bao Huy")==0)) {
+		return api.sendMessage(`Kêu Admin Của Tao Làm Giề ConDi` , event.threadID, event.messageID)
+		}
+};
+
+
+module.exports.run = async ({ event, api, Currencies, args, utils }) => {
+
+
+
+
+
+
+	}
