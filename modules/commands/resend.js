@@ -23,7 +23,7 @@ module.exports.event = async function ({ event, api, client }) {
       if(!client.message.some(item => item.msgID == messageID)) return;
       var getMsg = client.message.find(item => item.msgID == messageID);
      let name = (await api.getUserInfo(event.senderID))[senderID].name;
-      if(getMsg.msgBody != "") return api.sendMessage(`Con lợn ${name} đã cố xóa 1 tin nhắn nhưng làm sao mà xóa được với tốc độ cào phím của bot !!!.\nVới nội dung: ${getMsg.msgBody}`,threadID)
+      if(getMsg.msgBody != "") return api.sendMessage(`Con lợn ${name} đã cố xóa 1 tin nhắn nhưng làm sao mà xóa được với tốc độ cào nát bàn phím của BOT đây.\nNội Dung vợ anh xóa là: ${getMsg.msgBody}`,threadID)
       else {
             let num = 0
             let msg = `Vợ yêu ${name} vừa gỡ ${getMsg.attachment.length} tệp đính kèm:\n`
@@ -46,14 +46,14 @@ module.exports.run = async ({ event, api, args, Threads, client, utils }) => {
             settings["resend"] = true;
             await Threads.setData(event.threadID, options = { settings });
             client.threadSetting.set(event.threadID, settings);
-            api.sendMessage("Đã bật resend thành công!", event.threadID);
+            api.sendMessage("Đã bật Chế Độ Cào Phím thành công!", event.threadID);
             break;
         }
         case "off": {
             settings["resend"] = false;
             await Threads.setData(event.threadID, options = { settings });
             client.threadSetting.set(event.threadID, settings);
-            api.sendMessage("Đã tắt resend thành công!", event.threadID);
+            api.sendMessage("Đã tắt thành công chế độ anh hùng bàn phím!", event.threadID);
             break;
         }
     
