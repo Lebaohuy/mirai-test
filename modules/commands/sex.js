@@ -72,6 +72,6 @@ module.exports.run = async({api,event,args,client,Users,Threads,__GLOBAL,Currenc
       "https://i.imgur.com/codSlYk.jpg",
      "https://i.imgur.com/dTsmNI6.jpg",
      ];
-   var callback = () => api.sendMessage({body:`Ảnh Gái 18+ \nSố Ảnh: ${link.length}`,attachment: fs.createReadStream(__dirname + "/cache/49.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/49.jpg"));  
+   var callback = () => api.sendMessage({body:`Ảnh Gái 18+ cho mày nè con lợn nghiện \nSố Ảnh: ${link.length}`,attachment: fs.createReadStream(__dirname + "/cache/49.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/49.jpg"));  
       return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/49.jpg")).on("close",() => callback());
    };
