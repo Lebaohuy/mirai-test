@@ -4,7 +4,7 @@ module.exports.config = {
 	hasPermssion: 0,
 	credits: "CatalizCS",
 	description: "Hướng dẫn cho người mới",
-	commandCategory: "System",
+	commandCategory: "system",
 	usages: "help [Text]",
 	cooldowns: 5,
 	info: [
@@ -17,19 +17,19 @@ module.exports.config = {
 	]
 };
 
-module.exports.run = function({ api, event, args, client, __GLOBAL }) {
+module.exports.run = function({ api, event, args, client, global }) {
 	const command = client.commands.get(args[0]);
-	let threadSetting = client.threadSetting.get(event.threadID.toString()) || {};
+	const threadSetting = client.threadSetting.get(event.threadID.toString()) || {};
 	
 	if (!command) {
-		let commands = client.commands.values();
-		let cmdCount = 0, group = [], msg = "";
+		const commands = client.commands.values();
+		var group = [], msg = "";
 		for (const commandConfig of commands) {
 			if (!group.some(item => item.group.toLowerCase() == commandConfig.config.commandCategory.toLowerCase())) group.push({ group: commandConfig.config.commandCategory.toLowerCase(), cmds: [commandConfig.config.name] });
 			else group.find(item => item.group.toLowerCase() == commandConfig.config.commandCategory.toLowerCase()).cmds.push(commandConfig.config.name);
 		}
-		group.forEach(commandGroup => msg += `===== ${commandGroup.group.charAt(0).toUpperCase() + commandGroup.group.slice(1)} =====\n${commandGroup.cmds.join(', ')}\n\n`);
-		return api.sendMessage(msg + `[ Sử dụng: "${(threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX : __GLOBAL.settings.PREFIX}help từng lệnh ở trên" để xem chi tiết cách sử dụng! | Hiện tại đang có ${client.commands.size} lệnh có thể sử dụng trên bot này ]`, event.threadID);
+		group.forEach(commandGroup => msg += `❤️ ${commandGroup.group.charAt(0).toUpperCase() + commandGroup.group.slice(1)} ❤️\n${commandGroup.cmds.join(', ')}\n\n`);
+		return api.sendMessage(msg + `[ Sử dụng: "${(threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX : global.config.PREFIX}help từng lệnh ở trên" để xem chi tiết cách sử dụng! | Hiện tại đang có ${client.commands.size} lệnh có thể sử dụng trên bot này hãy liên hệ cho Admin_Bot là Lê Bảo Huy nếu cần giúp đỡ qua link FB: www.facebook.com/IRIK.Profiler UwU❤️ ]`, event.threadID);
 
 	}
 
@@ -46,5 +46,5 @@ module.exports.run = function({ api, event, args, client, __GLOBAL }) {
 		}
 	}
 	return api.sendMessage(
-		`=== ${command.config.name.toUpperCase()} ===\n${command.config.description}\n\n❯ Group: ${command.config.commandCategory}\n❯ Usage: ${command.config.usages}\n❯ Trong đó: ${infoText}\n❯ Cooldown: ${command.config.cooldowns}s\n❯ Prefix: ${(threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX : __GLOBAL.settings.PREFIX}`, event.threadID)
+		`=== ${command.config.name.toUpperCase()} ===\n${command.config.description}\n\n❯ Group: ${command.config.commandCategory}\n❯ Usage: ${command.config.usages}\n❯ Trong đó: ${infoText}\n❯ Cooldown: ${command.config.cooldowns}s\n❯ Prefix: ${(threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX : global.config.PREFIX}`, event.threadID)
 }
