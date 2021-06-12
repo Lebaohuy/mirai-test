@@ -14,7 +14,7 @@ module.exports.event = function({ api, event }) {
 	if (event.body.indexOf("Hi")==0 || (event.body.indexOf("hi")==0) || (event.body.indexOf("Hello")==0) || (event.body.indexOf("hello")==0)) {
 		var msg = {
 				body: "Chào bạn chúc bạn một ngày tốt lành UwU",
-				attachment: fs.createReadStream(__dirname + `/cache/Hi.gif`)
+				attachment: fs.createReadStream(__dirname + `/cache/hi.gif`)
 			}
 			return api.sendMessage(msg, threadID, messageID);
 		}
