@@ -34,14 +34,14 @@ module.exports.run = async function({ api, event, __GLOBAL, client }) {
 		}
 		memLength.sort((a, b) => a - b);
 		
-		(typeof settings.customJoin == "undefined") ? msg = "Con lợn mói tên {name} đã gia nhập vào Box toàn Lợn .\nChào mừng con lợn đã đến với box {threadName}.\n{type} Con lợn là thành viên thứ {soThanhVien} của nhóm 🥳. Đéo tt=bay acc 🙃. Chúc con lợn có những phút giây vui vẻ ở box toàn những con Lợn nhựa nha uwu❤️" : msg = settings.customJoin;
+		(typeof settings.customJoin == "undefined") ? msg = "Con lợn mới tên {name} đã gia nhập vào Box toàn Lợn .\nChào mừng con lợn đã đến với box {threadName}.\n{type} Con lợn là thành viên thứ {soThanhVien} của nhóm 🥳. Đéo tt=bay acc 🙃. Chúc con lợn có những phút giây vui vẻ ở box toàn những con Lợn nhựa nha uwu❤️" : msg = settings.customJoin;
 		msg = msg
 		.replace(/\{name}/g, nameArray.join(', '))
 		.replace(/\{type}/g, (memLength.length > 1) ?  'các bạn' : '')
 		.replace(/\{soThanhVien}/g, memLength.join(', '))
 		.replace(/\{threadName}/g, threadName);
 		if (existsSync(dirGif)) mkdirSync(dirGif, { recursive: true });
-		if (existsSync(dirGif + `lolo.gif`)) formPush = { body: msg, attachment: createReadStream(dirGif + `lolo.gif`), mentions }
+		if (existsSync(dirGif + `received_1213055775809701.gif`)) formPush = { body: msg, attachment: createReadStream(dirGif + `received_1213055775809701.gif`), mentions }
 		else formPush = { body: msg, mentions }
 		return api.sendMessage(formPush, event.threadID);
 	}
