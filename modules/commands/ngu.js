@@ -5,7 +5,7 @@ name: "ngu",
 	hasPermssion: 0,
 	credits: "VanHung",
 	description: "Ngu như m =)",
-	commandCategory: "NoCầnPrefix",
+	commandCategory: "Không Cần Prefix",
 	usages: "ko cần prefix chỉ cần chat ngu",
 	cooldowns: 5,
 };
@@ -14,7 +14,7 @@ module.exports.event = function({ api, event, client, __GLOBAL }) {
 	if (event.body.indexOf("ngu")==0 || (event.body.indexOf("Ngu")==0)) {
 		var msg = {
 				body: "Ngu thì chết, khóc lóc cái quần",
-				attachment: fs.createReadStream(__dirname + `/cache/ngu.mp3`)
+				attachment: fs.createReadStream(__dirname + `/cache/FB_IMG_16254179961774122.jpg`)
 			}
 			api.sendMessage(msg, threadID, messageID);
 		}
