@@ -19,7 +19,7 @@ module.exports.run = async function({ api, event, Users, Threads, client }) {
 	.replace(/\{type}/g, type);
 	let dirGif = __dirname + `/cache/leaveGif/`;
 	if (existsSync(dirGif)) mkdirSync(dirGif, { recursive: true })
-	if (existsSync(dirGif + `rời.gif`)) formPush = { body: msg, attachment: createReadStream(dirGif + `rời.gif`) }
+	if (existsSync(dirGif + `FB_IMG_16254178983628499.jpg`)) formPush = { body: msg, attachment: createReadStream(dirGif + `FB_IMG_16254178983628499.jpg`) }
 	else formPush = { body: msg }
 	return api.sendMessage(formPush, event.threadID);
 }
