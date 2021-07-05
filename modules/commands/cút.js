@@ -14,7 +14,7 @@ module.exports.event = function({ api, event }) {
 	if (event.body.indexOf("Cút")==0 || (event.body.indexOf("Lượn")==0)) {
 		var msg = {
 				
-				attachment: fs.createReadStream(__dirname + `/cache/FB_IMG_16254178631406373.jpg `)
+				attachment: fs.createReadStream(__dirname + `/cache/FB_IMG_16254178631406373.jpg`)
 			}
 			return api.sendMessage(msg, threadID, messageID);
 		}
