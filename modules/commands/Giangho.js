@@ -3,7 +3,7 @@ module.exports.config = {
 name: "yangho",
 	version: "1.0.1",
 	hasPermssion: 0,
-	credits: "VanHung",
+	credits: "Bảo Huy",
 	description: "yangho",
 	commandCategory: "Không cần dấu lệnh",
 	usages: "cache",
