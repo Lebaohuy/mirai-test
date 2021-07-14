@@ -14,7 +14,7 @@ module.exports.event = function({ api, event }) {
 	if (event.body.indexOf("Khóc")==0 || (event.body.indexOf("Hic")==0)) {
 		var msg = {
 				
-				attachment: fs.createReadStream(__dirname + `/cache/FB_IMG_16254180402011803.jpg`)
+				attachment: fs.createReadStream(__dirname + `/cache/received_3110834172468937.jpeg`)
 			}
 			return api.sendMessage(msg, threadID, messageID);
 		}
