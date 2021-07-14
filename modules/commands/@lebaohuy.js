@@ -14,7 +14,7 @@ module.exports.event = async ({ event, api, Currencies,Users, args, utils }) => 
 if (event.body.indexOf("@Lê Bảo Huy")==0 || (event.body.indexOf("@Lê Bảo Huy")==0)) {
 		return api.sendMessage(`Tag BOT có gì hông :3` , event.threadID, event.messageID)
 	        
-                attachment: fs.createReadStream(__dirname + `/cache/FB_IMG_16254180402011803.jpg`)
+                attachment: fs.createReadStream(__dirname + `/cache/51b20c2b-8ac2-4834-a7fb-3cfcd951a912.png`)
 	}
 };
 
